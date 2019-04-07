@@ -16,7 +16,7 @@
               method="post">
             <p>
                 <label>帐号:</label>
-                <input type="text" name="name" id="id" value="">
+                <input type="text" name="username" id="id" value="">
             </p>
 
             <p>

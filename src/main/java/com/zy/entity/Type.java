@@ -5,15 +5,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Id;
-import java.io.Serializable;
+import javax.persistence.Transient;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Admin implements Serializable {
+public class Type {
     @Id
     private Integer id;
-    private String username;
-    private String salt;
-    private String password;
+    private String genre;
+    @Transient
+    private List<Association> children;
 }

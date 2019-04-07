@@ -129,9 +129,8 @@
                         <li class="active"><a href="#">首页</a></li>
                         <li><a href="#about">科技创新</a></li>
                         <li><a href="#services">理论研究</a></li>
-                        <li><a href="#gallery">社会服务</a></li>
-                        <li><a href="#curriculum">试运行</a></li>
-                        <li><a href="#contact">体育竞技</a></li>
+                        <li><a href="#curriculum">更多社团</a></li>
+                        <li><a href="#contact">加入社团</a></li>
                         <li><a href="#notice">公告</a></li>
                     </ul>
                 </div>
@@ -143,6 +142,7 @@
 <!-- Banner Section -->
 <!-- Carousel
    ================================================== -->
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -188,7 +188,8 @@
     </a>
 </div><!-- /.carousel -->
 <!-- /Banner Section -->
-<!-- About Section -->
+<!--   -->
+
 <section class="our-services" id="about">
     <h3 class="text-center slideanim">科技创新类社团</h3>
     <p class="text-center slideanim">科技创新类社团概要</p>
@@ -230,8 +231,9 @@
                         </div>
                         <div class="col-sm-6 col-xs-6">
                             <div class="serv-img-details slideanim">
+
                                 <h4><a href="${pageContext.request.contextPath}/view/info/community_info.jsp"
-                                       target="_blank">天文地理协会</a></h4>
+                                       0m target="_blank">天文地理协会</a></h4>
                                 <p>天文地理协会</p>
                             </div>
                         </div>
@@ -256,6 +258,7 @@
                                  class="img-responsive slideanim">
                         </div>
                         <div class="col-sm-6 col-xs-6">
+
                             <div class="serv-img-details slideanim">
                                 <h4><a href="${pageContext.request.contextPath}/view/info/community_info.jsp"
                                        target="_blank">数学应用协会</a></h4>

@@ -1,19 +1,15 @@
-package com.zy.entity;
+package com.zy.dto;
 
+import com.zy.entity.Association;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Id;
-import java.io.Serializable;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Admin implements Serializable {
-    @Id
+public class AdminDto {
     private Integer id;
     private String username;
-    private String salt;
-    private String password;
+    private Association association;
 }

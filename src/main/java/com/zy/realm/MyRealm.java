@@ -28,7 +28,8 @@ public class MyRealm extends AuthorizingRealm {
         String primaryPrincipal = (String) principalCollection.getPrimaryPrincipal();
         System.out.println("primaryPrincipal=" + primaryPrincipal);
         Power power = powerMapper.queryPowerByName(primaryPrincipal);
-        System.out.println("power=" + power);
+
+        System.out.println("power===========" + power);
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         authorizationInfo.addRole(power.getName());
         for (Limits limit : power.getLimits()) {
@@ -41,9 +42,9 @@ public class MyRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         String principal = (String) authenticationToken.getPrincipal();
         Admin admin = new Admin();
-        admin.setName(principal);
+        admin.setUsername(principal);
         admin = adminMapper.selectOne(admin);
-        AuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(admin.getName(), admin.getPassword(), ByteSource.Util.bytes(admin.getSalt()), this.getName());
+        AuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(admin.getUsername(), admin.getPassword(), ByteSource.Util.bytes(admin.getSalt()), this.getName());
         return authenticationInfo;
     }
 

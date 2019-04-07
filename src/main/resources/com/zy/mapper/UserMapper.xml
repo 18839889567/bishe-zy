@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zy.mapper.UserMapper">
+
+    <select id="queryUserByAssociation" resultType="com.zy.entity.User" parameterType="Integer">
+
+        SELECT
+            u.id             id,
+            u.student_number studentNumber,
+            u.password,
+            u.name,
+            u.phone,
+            u.sex,
+            u.college,
+            u.major,
+            u.position,
+            u.head_pic       headPic
+        from user_association ua
+                 left JOIN user u
+                           on ua.user_id = u.id
+        where association_id = #{aid}
+        order by position
+
+    </select>
+
+
+</mapper>

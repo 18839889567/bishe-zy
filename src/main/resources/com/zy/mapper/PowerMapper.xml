@@ -23,7 +23,7 @@
                            on r.id = rl.role_id
                  LEFT JOIN limits l
                            on rl.limits_id = l.id
-        where a.name = #{name}
+        where a.username = #{name}
     </select>
 
 

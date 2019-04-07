@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zy.mapper.AssociationTypeMapper">
+    <resultMap type="com.zy.entity.Type" id="r1">
+        <id column="id" property="id"></id>
+        <result column="genre" property="genre"></result>
+        <collection property="children" ofType="com.zy.entity.Association">
+            <id column="cid" property="id"/>
+            <result column="associationName" property="genre"></result>
+            <result column="proprieterName" property="proprieterName"></result>
+            <result column="proprieterId" property="proprieterId"></result>
+            <result column="proprieterPhone" property="proprieterPhone"></result>
+            <result column="picture" property="picture"></result>
+            <result column="createDate" property="createDate"></result>
+            <result column="number" property="number"></result>
+            <result column="synopsis" property="synopsis"></result>
+        </collection>
+    </resultMap>
+    <resultMap type="com.zy.dto.AdminDto" id="r2">
+        <id column="id" property="id"></id>
+        <result column="username" property="username"></result>
+        <association property="association" javaType="com.zy.entity.Association">
+            <id column="cid" property="id"/>
+            <result column="associationName" property="genre"></result>
+            <result column="proprieterName" property="proprieterName"></result>
+            <result column="proprieterId" property="proprieterId"></result>
+            <result column="proprieterPhone" property="proprieterPhone"></result>
+            <result column="picture" property="picture"></result>
+            <result column="createDate" property="createDate"></result>
+            <result column="number" property="number"></result>
+            <result column="synopsis" property="synopsis"></result>
+        </association>
+    </resultMap>
+
+
+    <select id="queryAll" resultMap="r1">
+        select b.*,
+               c.id               cid,
+               c.association_name associationName,
+               c.proprieter_name  proprieterName,
+               c.proprieter_id    proprieterId,
+               c.proprieter_phone proprieterPhone,
+               c.create_date      createDate,
+               c.picture,
+               c.number,
+               c.synopsis
+        from (select t.id,
+                     t.genre
+              from type t
+              order by t.id desc LIMIT ${(page-1)*pageSize},${pageSize}) b
+                 LEFT JOIN association c
+                           on b.id = c.type_id
+
+    </select>
+
+    <select id="queryAdmin" resultMap="r2">
+        SELECT
+            ad.id,
+            ad.username,
+            c.association_name associationName,
+            c.proprieter_name  proprieterName,
+            c.proprieter_id    proprieterId,
+            c.proprieter_phone proprieterPhone,
+            c.create_date      createDate,
+            c.picture,
+            c.number,
+            c.synopsis
+        FROM
+            admin_role
+                LEFT JOIN admin ad ON ad.id = admin_id
+                LEFT JOIN association c ON c.id = ad.association_id
+        WHERE
+            role_id = 1
+    </select>
+
+
+</mapper>

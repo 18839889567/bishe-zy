@@ -68,7 +68,7 @@
             });
             return ul;
         } else {
-            return "控控乳液"
+            return "控控"
         }
     }
 

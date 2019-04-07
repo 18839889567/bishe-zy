@@ -28,7 +28,7 @@
     myChart.setOption(option);
     $.ajax({
         type: "get",
-        url: "${pageContext.request.contextPath}/user/queryByDate",
+        url: "${pageContext.request.contextPath}/user1/queryByDate",
         dataType: "JSON",
         success: function (data) {
             console.log(data)

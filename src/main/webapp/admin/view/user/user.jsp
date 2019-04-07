@@ -60,7 +60,7 @@
 
 
         $('#user').edatagrid({
-            url: '${pageContext.request.contextPath}/user/queryByPage',
+            url: '${pageContext.request.contextPath}/association/queryAdmin',
             updateUrl: '${pageContext.request.contextPath}/user/update',
             destroyUrl: '${pageContext.request.contextPath}/user/delete',
             idField: 'id',

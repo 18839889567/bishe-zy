@@ -50,6 +50,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-6 col-md-6">
                 <div class="about-details">
                     <div class="row">
