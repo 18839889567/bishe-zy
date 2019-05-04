@@ -19,9 +19,74 @@
                  left JOIN user u
                            on ua.user_id = u.id
         where association_id = #{aid}
+          and status = 1
         order by position
-
     </select>
 
+    <select id="queryUserByStatus" resultType="com.zy.entity.User" parameterType="Integer">
+        SELECT
+            u.id             id,
+            u.student_number studentNumber,
+            u.password,
+            u.name,
+            u.phone,
+            u.sex,
+            u.college,
+            u.major,
+            u.position,
+            u.head_pic       headPic
+        from user_association ua
+                 left JOIN user u
+                           on ua.user_id = u.id
+        where association_id = #{aid}
+          and status = 0
+        order by position
+    </select>
+
+
+    <select id="selectProvinceAll" resultType="com.zy.entity.Province" parameterType="String">
+        SELECT u.province name,COUNT(*) value
+        FROM user_association
+             LEFT
+             JOIN
+             user
+             u
+        on user_id =
+           u
+           .
+           id
+        where association_id=#{associationId} and status='1'
+        GROUP BY province
+    </select>
+
+    <select id="selectProvinceMale" resultType="com.zy.entity.Province" parameterType="String">
+
+        SELECT u.province name,COUNT(*) value
+        FROM user_association
+             LEFT
+             JOIN
+             user
+             u
+        on user_id =
+           u
+           .
+           id
+        where association_id=#{associationId} and status='1' and sex='男'
+        GROUP BY province
+    </select>
+    <select id="selectProvinceFemale" resultType="com.zy.entity.Province" parameterType="String">
+        SELECT u.province name,COUNT(*) value
+        FROM user_association
+             LEFT
+             JOIN
+             user
+             u
+        on user_id =
+           u
+           .
+           id
+        where association_id=#{associationId} and status='1' and sex='女'
+        GROUP BY province
+    </select>
 
 </mapper>

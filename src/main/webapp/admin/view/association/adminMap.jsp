@@ -91,7 +91,7 @@
     $.ajax({
         type: "get",
         url: "${pageContext.request.contextPath}/user/province",
-        data: "associationId=" +${sessionScope.associationId},
+        data: "associationId=" + adminId,
         dataType: "JSON",
         success: function (data) {
             console.log(data)

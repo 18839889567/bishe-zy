@@ -75,8 +75,8 @@
 
                     for (var i = 0; i < result.length; i++) {
                         //   console.log(result[i].title)
-                        if (result[i].title == "添加社团") {
-                            <shiro:hasRole name="super">
+                        if (result[i].title == "社团概况") {
+                            <shiro:hasRole name="user">
                             $("#menu").accordion('add', {
                                 iconCls: result[i].iconcls,
                                 title: result[i].title,

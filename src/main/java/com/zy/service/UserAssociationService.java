@@ -9,4 +9,6 @@ public interface UserAssociationService {
     public void delete(UserAssociation userAssociation);
 
     public void update(UserAssociation userAssociation);
+
+    public void updateByStatus(UserAssociation userAssociation);
 }

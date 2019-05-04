@@ -1,7 +1,7 @@
 <%@page pageEncoding="UTF-8" %>
 <script type="text/javascript">
+    var assid;
     $(function () {
-
         $("#UserEdatagrid").edatagrid({
             updateUrl: "${pageContext.request.contextPath}/userAssociation/update",
             url: '${pageContext.request.contextPath}/user/queryUserByAssociation?aid=' +${sessionScope.associationId},
@@ -81,6 +81,15 @@
                 handler: function () {
                     $("#UserEdatagrid").edatagrid("saveRow")
                 }
+            }, '-', {
+                iconCls: 'icon-save',
+                text: "审批",
+                handler: function () {
+
+                    addTabs("审批", "icon-add", "admin/view/association/agree.jsp");
+                    assid =${sessionScope.associationId};
+                    console.log(assid)
+                }
             }]
             , view: detailview,
             detailFormatter: function (rowIndex, rowData) {
@@ -99,8 +108,18 @@
             cache: false
         })
     });
+    $("#agree").dialog({
+        title: '审批',
+        width: 300,
+        height: 400,
+        modal: true,
+        resizable: true,
+        href: "${pageContext.request.contextPath}/admin/view/association/agree.jsp",
+        closed: true,
+        cache: false
+    })
 
 </script>
-
+<div id="agree"></div>
 <div id="addUserFormDialog"></div>
 <table id="UserEdatagrid"></table>

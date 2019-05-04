@@ -2,5 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.zy.mapper.UserAssociationMapper">
 
-
+    <update id="updateByStatus">
+        UPDATE user_association
+        SET status = 1
+        WHERE association_id = ${associationId}
+          AND user_id = ${userId}
+    </update>
 </mapper>

@@ -11,4 +11,5 @@ public class UserAssociation {
     private Integer id;
     private Integer associationId;
     private Integer userId;
+    private Integer status;
 }

@@ -62,6 +62,24 @@
         handler: function () {
             $("#AddAssociationTypeDialog").dialog("open");
         }
+    }, {
+        iconCls: 'icon-add',
+        text: "社团人员分布图",
+        handler: function () {
+            //获取选中行
+            var row = $("#Association").treegrid("getSelected");
+            //console.log(row)
+            if (row != null && row.children == null) {
+                addTabs("社团详细信息", "icon-add", "admin/view/association/adminMap.jsp");
+                adminId = row.id;
+
+            } else {
+                $.messager.alert({
+                    msg: '请先选中社团'
+                })
+            }
+
+        }
     },
         '-', {
             text: "删除社团类型",

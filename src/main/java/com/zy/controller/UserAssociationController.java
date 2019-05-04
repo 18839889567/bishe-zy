@@ -27,4 +27,9 @@ public class UserAssociationController {
     public void update(UserAssociation userAssociation) {
         userService.update(userAssociation);
     }
+
+    @RequestMapping("updateByStatus")
+    public void updateByStatus(UserAssociation userAssociation) {
+        userService.updateByStatus(userAssociation);
+    }
 }

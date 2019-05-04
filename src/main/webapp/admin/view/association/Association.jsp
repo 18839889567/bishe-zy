@@ -1,5 +1,6 @@
 <%@page pageEncoding="UTF-8" %>
 <script type="text/javascript">
+    var assid;
     $(function () {
         $("#Associationedatagrid").edatagrid({
             updateUrl: "${pageContext.request.contextPath}/association/update",
@@ -40,7 +41,7 @@
                 iconCls: 'icon-add',
                 text: "增加",
                 handler: function () {
-                    $("addAssociationDialog").dialog("open");
+                    $("#addMembersDialog").dialog("open");
                 }
             }, '-', {
                 iconCls: 'icon-edit',
@@ -66,7 +67,8 @@
                     $.post("${pageContext.request.contextPath}/banner/delete",
                         "id=" + row.id,
                         function (result) {
-                            $('#edatagrid').edatagrid('destroyRow');
+
+                            $('#Associationedatagrid').edatagrid('destroyRow');
 
                         }
                     )
@@ -79,17 +81,48 @@
                 handler: function () {
                     $("#Associationedatagrid").edatagrid("saveRow")
                 }
-            }]
+            }, '-', {
+                iconCls: 'icon-save',
+                text: "审批",
+                handler: function () {
+                    addTabs("审批", "icon-add", "admin/view/association/agree.jsp");
+                    assid = adminId;
+                    console.log(assid)
+                }
+            }
+            ]
             , view: detailview,
             detailFormatter: function (rowIndex, rowData) {
 
             }
+            }
+        )
+        $("#addMembersDialog").dialog({
+            title: '添加成员',
+            width: 300,
+            height: 400,
+            modal: true,
+            resizable: true,
+            href: "${pageContext.request.contextPath}/admin/view/association/AddMembers.jsp",
+            closed: true,
+            cache: false
         })
-
+        $("#agreeDialog").dialog({
+            title: '审批',
+            width: 300,
+            height: 400,
+            modal: true,
+            resizable: true,
+            href: "${pageContext.request.contextPath}/admin/view/association/agree.jsp",
+            closed: true,
+            cache: false
+        })
 
     });
 
+
 </script>
 
-<div id="addAssociationDialog"></div>
+<div id="addMembersDialog"></div>
+<div id="agreeDialog"></div>
 <table id="Associationedatagrid"></table>
