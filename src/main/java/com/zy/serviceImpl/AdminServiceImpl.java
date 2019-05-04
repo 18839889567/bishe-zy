@@ -39,13 +39,17 @@ public class AdminServiceImpl implements AdminService {
             AuthenticationToken token = new UsernamePasswordToken(admin.getUsername(), admin.getPassword());
             try {
                 subject.login(token);
-
                 session.setAttribute("name", admin.getUsername());
+                Admin admin1 = new Admin();
+                admin1.setUsername(admin.getUsername());
+                List<Admin> ad = adminMapper.select(admin1);
+                System.out.println(ad.get(0).getAssociationId() + "++++++++++++++++++++");
+                session.setAttribute("associationId", ad.get(0).getAssociationId());
                 return "admin/main/main";
             } catch (UnknownAccountException e) {
-                return new error("-200", "用户名不存在");
+                return "admin/main/admin_login.jsp";
             } catch (IncorrectCredentialsException e) {
-                return new error("-200", "密码不存在");
+                return "admin/main/admin_login.jsp";
             }
         }
     }
@@ -65,6 +69,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public void insert(Admin admin) {
+        admin.setSalt("ABCD");
         adminMapper.insert(admin);
         AdminRole adminRole = new AdminRole();
         adminRole.setAdminId(admin.getId());
@@ -76,4 +81,5 @@ public class AdminServiceImpl implements AdminService {
     public void save(Admin admin) {
         adminMapper.updateByPrimaryKey(admin);
     }
+
 }

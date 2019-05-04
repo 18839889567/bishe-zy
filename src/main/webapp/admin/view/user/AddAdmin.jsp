@@ -1,12 +1,12 @@
 <%@page pageEncoding="UTF-8" %>
 <script type="text/javascript">
     $(function () {
-        $("#addAminFormBtn").linkbutton({
+        $("#addAdminFormBtn").linkbutton({
             text: '提交',
             iconCls: 'icon-add',
             onClick: function () {
                 $("#addAdminForm").form("submit", {
-                    url: "${pageContext.request.contextPath}/banner/insert",
+                    url: "${pageContext.request.contextPath}/admin/insert",
                     onSubmit: function () {
 
                     }, success: function () {
@@ -15,7 +15,7 @@
                             msg: "添加成功"
                         });
                         $("#addAdminDialog").dialog("close");
-                        $("#AdminEdatagrid").datagrid("reload");
+                        $("#UserEdatagrid").datagrid("reload");
                     }
 
                 });
@@ -30,18 +30,17 @@
         $("#addAdminFormStatus").validatebox({
             required: true
         });
+        $("#addAdminFormAssciation").validatebox({
+            required: true
+        });
 
     })
 </script>
 
 <form id="addAdminForm" method="post" enctype="multipart/form-data">
 
-
-    用户名:<input id="addAdminFormTitle" name="title"/> <br/>
-    密码:<input id="addAdminFormStatus" name="status"/><br/>
-    :
-    <input id="addAdminFormDescription" name="description"><br>
-    图片： <input type="file" name="file"/>
+    用户名:<input id="addAdminFormTitle" name="username"/> <br/>
+    密码:<input id="addAdminFormStatus" name="password"/><br/>
+    社团号：<input id="addAdminFormAssciation" name="associationId"/><br/>
     <a id="addAdminFormBtn" value="提交"/>
-
 </form>

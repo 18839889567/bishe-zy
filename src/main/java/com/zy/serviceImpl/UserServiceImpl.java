@@ -19,4 +19,19 @@ public class UserServiceImpl implements UserService {
     public List<User> queryUserByAssociation(Integer aid) {
         return userMapper.queryUserByAssociation(aid);
     }
+
+    @Override
+    public void addMember(User userAssociation) {
+        userMapper.insert(userAssociation);
+    }
+
+    @Override
+    public void delete(User userAssociation) {
+        userMapper.delete(userAssociation);
+    }
+
+    @Override
+    public void update(User userAssociation) {
+        userMapper.updateByPrimaryKey(userAssociation);
+    }
 }

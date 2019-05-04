@@ -82,23 +82,8 @@
             }]
             , view: detailview,
             detailFormatter: function (rowIndex, rowData) {
-                return '<table><tr>' +
-                    '<td rowspan=2 style="border:0"><img src="${pageContext.request.contextPath}/' + rowData.headPic + '" style="height:50px;"></td>' +
-                    '<td style="border:0">' +
-                    '</td>' +
-                    '</tr></table>';
+
             }
-        })
-//添加
-        $("addAssociationDialog").dialog({
-            title: '添加轮播图',
-            width: 300,
-            height: 400,
-            modal: true,
-            resizable: true,
-            href: "${pageContext.request.contextPath}/view/banner/AddBanner.jsp",
-            closed: true,
-            cache: false
         })
 
 

@@ -28,10 +28,9 @@ public class ShiroFilterConf {
         //多个过滤器  AnonymousFilter  匿名过滤器   anon   不拦截
         //     FormAuthenticationFilter 认证过滤器 authc  拦截
         Map<String, String> map = new HashMap<>();
-        map.put("/view/user/login/index.jsp", "authc");
-        map.put("/view/user/login/**", "authc");
+        map.put("/admin/main/main.jsp", "authc");
         //设置入口页面位置
-        shiroFilterFactoryBean.setLoginUrl("/view/user/login/login.jsp");
+        shiroFilterFactoryBean.setLoginUrl("/admin/main/admin_login.jsp");
         //设置过滤器
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
         return shiroFilterFactoryBean;
@@ -44,6 +43,7 @@ public class ShiroFilterConf {
         securityManager.setCacheManager(cacheManager);
         //提供自动以 realm 做认证授权
         securityManager.setRealm(realm);
+
         return securityManager;
     }
 

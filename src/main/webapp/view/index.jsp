@@ -87,7 +87,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                <a href="#index.html" class="logo"><h1>多彩生活</h1></a>
+                <a href="#index.html" class="logo"><h1>多彩社团</h1></a>
             </div>
 
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -127,11 +127,10 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">首页</a></li>
-                        <li><a href="#about">科技创新</a></li>
-                        <li><a href="#services">理论研究</a></li>
+                        <li><a href="#about">我的社团</a></li>
+                        <li><a href="#services">我的信息</a></li>
                         <li><a href="#curriculum">更多社团</a></li>
-                        <li><a href="#contact">加入社团</a></li>
-                        <li><a href="#notice">公告</a></li>
+                        <li><a href="#contact">密码修改</a></li>
                     </ul>
                 </div>
             </div>

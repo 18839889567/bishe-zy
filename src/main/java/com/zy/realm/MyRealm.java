@@ -28,7 +28,6 @@ public class MyRealm extends AuthorizingRealm {
         String primaryPrincipal = (String) principalCollection.getPrimaryPrincipal();
         System.out.println("primaryPrincipal=" + primaryPrincipal);
         Power power = powerMapper.queryPowerByName(primaryPrincipal);
-
         System.out.println("power===========" + power);
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         authorizationInfo.addRole(power.getName());

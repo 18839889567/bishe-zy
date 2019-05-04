@@ -62,7 +62,7 @@
                 iconCls: 'icon-add',
                 text: "增加普通管理员",
                 handler: function () {
-                    $("#addBannerDialog").dialog("open");
+                    $("#addAdminDialog").dialog("open");
                 }
             }, '-', {
                 iconCls: 'icon-edit',
@@ -131,23 +131,21 @@
             }
         })
 //添加
-        $("#addBannerDialog").dialog({
+        $("#addAdminDialog").dialog({
             title: '添加轮播图',
             width: 300,
             height: 400,
             modal: true,
             resizable: true,
-            href: "${pageContext.request.contextPath}/view/banner/AddBanner.jsp",
+            href: "${pageContext.request.contextPath}/admin/view/user/AddAdmin.jsp",
             closed: true,
             cache: false
         })
-
-
     });
 
 
 </script>
 
 
-<div id="addBannerDialog"></div>
+<div id="addAdminDialog"></div>
 <table id="AdminEdatagrid"></table>

@@ -18,7 +18,6 @@
             closable: true
         });
     }
-
     var adminId;
     var toolbar = [{
         iconCls: 'icon-add',
@@ -95,8 +94,6 @@
                         });
 
                     }
-
-
                 } else {
                     $.messager.alert({
                         msg: '请先选中社团类型'
@@ -118,8 +115,6 @@
 
 
     $(function () {
-
-
         $('#Association').treegrid({
             url: '${pageContext.request.contextPath}/association/queryAll',
             idField: 'id',
