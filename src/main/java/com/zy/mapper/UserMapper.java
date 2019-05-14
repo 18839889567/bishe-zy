@@ -16,4 +16,5 @@ public interface UserMapper extends Mapper<com.zy.entity.User> {
     public List<Province> selectProvinceFemale(String associationId);
 
     public List<Province> selectProvinceAll(String associationId);
+
 }

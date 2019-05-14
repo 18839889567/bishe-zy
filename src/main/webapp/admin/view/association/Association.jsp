@@ -87,13 +87,36 @@
                 handler: function () {
                     addTabs("审批", "icon-add", "admin/view/association/agree.jsp");
                     assid = adminId;
-                    console.log(assid)
+                }
+            }, '-', {
+                iconCls: 'icon-save',
+                text: "导入",
+                handler: function () {
+                    $("#importUserDialog").dialog("open");
+                    assid = adminId;
+                }
+            }, '-', {
+                iconCls: 'icon-save',
+                text: "导出",
+                handler: function () {
+                    alert(adminId)
+                    $.post(
+                        "${pageContext.request.contextPath}/user/downloadUser",
+                        "aid=" + adminId,
+                        function () {
+                            $.messager.show({
+                                title: '系统提示',
+                                msg: '导出',
+                                timeout: 5000,
+                                showType: 'slide'
+                            });
+                        }
+                    )
                 }
             }
             ]
             , view: detailview,
             detailFormatter: function (rowIndex, rowData) {
-
             }
             }
         )
@@ -117,12 +140,22 @@
             closed: true,
             cache: false
         })
+        $("#importUserDialog").dialog({
+            title: '导入',
+            width: 300,
+            height: 400,
+            modal: true,
+            resizable: true,
+            href: "${pageContext.request.contextPath}/admin/view/association/importUser.jsp",
+            closed: true,
+            cache: false
+        })
 
     });
 
 
 </script>
-
+<div id="importUserDialog"></div>
 <div id="addMembersDialog"></div>
 <div id="agreeDialog"></div>
 <table id="Associationedatagrid"></table>

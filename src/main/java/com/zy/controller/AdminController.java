@@ -50,6 +50,13 @@ public class AdminController {
         adminService.save(admin);
     }
 
+    @RequestMapping("queryOneAdmin")
+    @ResponseBody
+    public void queryOneAdmin(Admin admin) {
+        adminService.queryOneAdmin(admin);
+    }
+
+
 
 
 }

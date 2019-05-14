@@ -5,6 +5,7 @@
     <resultMap type="com.zy.dto.AdminDto" id="r2">
         <id column="id" property="id"></id>
         <result column="username" property="username"></result>
+        <result column="name" property="name"></result>
         <association property="association" javaType="com.zy.entity.Association">
             <id column="cid" property="id"/>
             <result column="associationName" property="genre"></result>
@@ -23,6 +24,7 @@
         SELECT
             ad.id,
             ad.username,
+            ad.name,
             c.association_name associationName,
             c.proprieter_name  proprieterName,
             c.proprieter_id    proprieterId,

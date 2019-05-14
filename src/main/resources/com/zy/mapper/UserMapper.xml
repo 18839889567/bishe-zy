@@ -14,7 +14,8 @@
             u.college,
             u.major,
             u.position,
-            u.head_pic       headPic
+            u.head_pic       headPic,
+            u.position_synopsis
         from user_association ua
                  left JOIN user u
                            on ua.user_id = u.id

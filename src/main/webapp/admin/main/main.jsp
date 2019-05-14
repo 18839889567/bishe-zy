@@ -75,6 +75,7 @@
 
                     for (var i = 0; i < result.length; i++) {
                         //   console.log(result[i].title)
+                        4
                         if (result[i].title == "社团概况") {
                             <shiro:hasRole name="user">
                             $("#menu").accordion('add', {
@@ -112,9 +113,9 @@
     <div style="font-size: 16px;color: #FAF7F7;font-family: 楷体;width: 300px;float:right;padding-top:15px">
         欢迎您:${sessionScope.name}
 
-        &nbsp;<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">修改密码</a>&nbsp;&nbsp;<a href="#"
-                                                                                                              class="easyui-linkbutton"
-                                                                                                              data-options="iconCls:'icon-01'">退出系统</a>
+        &nbsp;<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit'"></a>&nbsp;&nbsp;<a href="#"
+                                                                                                          class="easyui-linkbutton"
+                                                                                                          data-options="iconCls:'icon-01'">退出系统</a>
     </div>
 </div>
 <div data-options="region:'south',split:true" style="height: 40px;background: #363636">

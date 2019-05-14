@@ -2,7 +2,9 @@ package com.zy.service;
 
 import com.zy.entity.Province;
 import com.zy.entity.User;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -19,4 +21,9 @@ public interface UserService {
 
     public Map<String, List<Province>> queryProvince(String associationId);
 
+    public void downloadUser(HttpSession session, Integer aid);
+
+    public void poiImportUser(HttpSession session, MultipartFile file, Integer aid);
+
+    public User queryOneUser(User user);
 }

@@ -17,4 +17,5 @@ public interface AdminService {
 
     public void save(Admin admin);
     // public Object loign(String phone, String password, String code);
+    public Admin queryOneAdmin(Admin admin);
 }

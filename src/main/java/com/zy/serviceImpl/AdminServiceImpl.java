@@ -44,6 +44,7 @@ public class AdminServiceImpl implements AdminService {
                 admin1.setUsername(admin.getUsername());
                 List<Admin> ad = adminMapper.select(admin1);
                 System.out.println(ad.get(0).getAssociationId() + "++++++++++++++++++++");
+                session.setAttribute("adminId", ad.get(0).getId());
                 session.setAttribute("associationId", ad.get(0).getAssociationId());
                 return "admin/main/main";
             } catch (UnknownAccountException e) {
@@ -80,6 +81,11 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public void save(Admin admin) {
         adminMapper.updateByPrimaryKey(admin);
+    }
+
+    @Override
+    public Admin queryOneAdmin(Admin admin) {
+        return adminMapper.selectOne(admin);
     }
 
 }
