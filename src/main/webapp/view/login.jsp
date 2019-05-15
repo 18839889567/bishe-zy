@@ -21,12 +21,12 @@
         <h1>欢迎</h1>
         <c:if test="${param.error =='uname' }"><font color=red>用户名密码错误</font></c:if>
 
-        <form name="myform" action="Login" method="post">
+        <form name="myform" action="${pageContext.request.contextPath}/user/login" method="post">
             <%if (request.getAttribute("return_uri") != null) {%>
             <input type="hidden" name="return_uri" value="<%=request.getAttribute("return_uri") %>"/>
             <%} %>
-            <input name="username" type="text" placeholder="登录名"/>
-            <input name="userpass" type="password" placeholder="密码"/>
+            <input name="studentNumber" type="text" placeholder="登录名"/>
+            <input name="password" type="password" placeholder="密码"/>
             <input type="submit" value="登录" onclick="return check(this)"/>
             <input name="lru" type="hidden" value="login"/>
             <input name="log" type="hidden" value="log"/>

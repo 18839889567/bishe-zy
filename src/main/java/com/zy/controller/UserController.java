@@ -51,4 +51,10 @@ public class UserController {
     public void poiImportUser(User user) {
         userService.queryOneUser(user);
     }
+
+    @RequestMapping("login")
+    public void login(User user) {
+        System.out.println(user + "uuuuuuuuuuuuuuuu");
+        userService.queryOneUser(user);
+    }
 }

@@ -114,4 +114,15 @@ public class UserServiceImpl implements UserService {
         return userMapper.selectOne(user);
     }
 
+    @Override
+    public User login(User user) {
+        return null;
+    }
+
+    @Override
+    public User regist(User user) {
+        return null;
+    }
+
+
 }

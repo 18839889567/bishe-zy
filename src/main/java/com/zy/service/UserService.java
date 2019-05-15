@@ -26,4 +26,8 @@ public interface UserService {
     public void poiImportUser(HttpSession session, MultipartFile file, Integer aid);
 
     public User queryOneUser(User user);
+
+    public User login(User user);
+
+    public User regist(User user);
 }
