@@ -111,7 +111,7 @@
         社团管理系统后台
     </div>
     <div style="font-size: 16px;color: #FAF7F7;font-family: 楷体;width: 300px;float:right;padding-top:15px">
-        欢迎您:${sessionScope.name}
+        欢迎您:${sessionScope.name}：${sessionScope.adminId}
 
         &nbsp;<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit'"></a>&nbsp;&nbsp;<a href="#"
                                                                                                           class="easyui-linkbutton"

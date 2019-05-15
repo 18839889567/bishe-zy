@@ -15,7 +15,12 @@
             columns: [[
                 {field: 'id', title: 'ID', width: 50},
                 {
-                    field: 'username', title: '用户名',
+                    field: 'username', title: '用户名', formatter: function (value, row, index) {
+                        return row.username
+                    }, width: 100
+                },
+                {
+                    field: 'password', title: '密码',
                     editor: {
                         type: "text",
                         options: {required: true}
@@ -131,16 +136,7 @@
             }
         })
 //添加
-        $("#addAdminDialog").dialog({
-            title: '添加轮播图',
-            width: 300,
-            height: 400,
-            modal: true,
-            resizable: true,
-            href: "${pageContext.request.contextPath}/admin/view/user/AddAdmin.jsp",
-            closed: true,
-            cache: false
-        })
+
     });
 
 

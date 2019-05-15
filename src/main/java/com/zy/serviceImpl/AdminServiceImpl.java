@@ -57,6 +57,10 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public List<AdminDto> queryAdmin() {
+        List<AdminDto> adminDtos = adminMapper.queryAdmin();
+        for (AdminDto adminDto : adminDtos) {
+            System.out.println(adminDto);
+        }
         return adminMapper.queryAdmin();
     }
 
